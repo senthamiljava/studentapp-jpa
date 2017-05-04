@@ -2,6 +2,7 @@ package com.revature.service;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,9 +24,9 @@ public class StudentSkillService {
 	}
 
 	public List<StudentSkill> findById(Integer id) {
-		for (StudentSkill ss : studentSkillRepository.findById(id)) {
+		for (StudentSkill ss : studentSkillRepository.findByStudentId(id)) {
 			System.out.println("Student Skill : " + ss);
 		}
-		return studentSkillRepository.findById(id);
+		return studentSkillRepository.findByStudentId(id);
 	}
 }

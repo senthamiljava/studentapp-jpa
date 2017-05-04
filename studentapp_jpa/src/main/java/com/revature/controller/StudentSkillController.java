@@ -42,11 +42,11 @@ public class StudentSkillController {
 	}
 
 	@GetMapping("/update")
-	public String update(@RequestParam("id") Integer id, @RequestParam("scale") String scale, ModelMap modelMap,
+	public String update(@RequestParam("id") String id, @RequestParam("scale") String scale, ModelMap modelMap,
 			HttpSession session) {
 		System.out.println("methodddd invokkkk");
 		Student student = (Student) session.getAttribute("logged_in_user");
-		Skill skill = skillService.findById(id);
+		Skill skill = skillService.findById(Integer.parseInt(id));
 		StudentSkill studentSkill = new StudentSkill();
 		studentSkill.setScale(scale);
 		studentSkill.setStudent(student);
